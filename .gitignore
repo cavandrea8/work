@@ -1,28 +1,21 @@
 ```
-# Environment
-.env
-.env.local
-*.env.*
+# Temporary directories
+temp/
+outputs/
 
-# Logs and temp files
-*.log
-*.tmp
-*.swp
+# Office file extraction artifacts
+*[Content_Types].xml
+*.rels
+docProps/
+word/
+customXml/
 
-# Editors
-.vscode/
-.idea/
+# Compressed/extracted office files
+*.docx
+*.xlsx
+*.pptx
 
-# Dependencies
-node_modules/
-.venv/
-venv/
-__pycache__/
-.mypy_cache/
-.pytest_cache/
-
-# Build artifacts
-dist/
-build/
-target/
+# Temporary unpack directories
+legsgi_unpack/
+manuale_unpack/
 ```
