@@ -1,5 +1,4 @@
 ```
-# Configuration and data files
-*.json
-*.docx
+# Directories
+repo_work/
 ```

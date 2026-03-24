@@ -1,0 +1,116 @@
+{
+  "styles": {
+    "Title": {
+      "font_name": "Calibri Light",
+      "size": 36,
+      "bold": 1,
+      "italic": null,
+      "underline": null,
+      "color": [
+        26,
+        35,
+        126
+      ],
+      "all_caps": null,
+      "small_caps": null,
+      "alignment": 1,
+      "line_spacing": null,
+      "space_before": null,
+      "space_after": 10,
+      "left_indent": null,
+      "right_indent": null,
+      "first_line_indent": null
+    },
+    "Heading 1": {
+      "font_name": "Calibri Light",
+      "size": 18,
+      "bold": 1,
+      "italic": null,
+      "underline": null,
+      "color": [
+        26,
+        35,
+        126
+      ],
+      "all_caps": null,
+      "small_caps": null,
+      "alignment": null,
+      "line_spacing": null,
+      "space_before": 20,
+      "space_after": 10,
+      "left_indent": null,
+      "right_indent": null,
+      "first_line_indent": null
+    },
+    "Heading 2": {
+      "font_name": null,
+      "size": 14,
+      "bold": 1,
+      "italic": null,
+      "underline": null,
+      "color": [
+        55,
+        71,
+        79
+      ],
+      "all_caps": null,
+      "small_caps": null,
+      "alignment": null,
+      "line_spacing": null,
+      "space_before": 15,
+      "space_after": 7,
+      "left_indent": null,
+      "right_indent": null,
+      "first_line_indent": null
+    },
+    "Heading 3": {
+      "font_name": null,
+      "size": 12,
+      "bold": 1,
+      "italic": null,
+      "underline": null,
+      "color": [
+        13,
+        71,
+        161
+      ],
+      "all_caps": null,
+      "small_caps": null,
+      "alignment": null,
+      "line_spacing": null,
+      "space_before": 10,
+      "space_after": 5,
+      "left_indent": null,
+      "right_indent": null,
+      "first_line_indent": null
+    },
+    "Normal": {
+      "font_name": null,
+      "size": null,
+      "bold": null,
+      "italic": null,
+      "underline": null,
+      "color": null,
+      "all_caps": null,
+      "small_caps": null,
+      "alignment": null,
+      "line_spacing": null,
+      "space_before": null,
+      "space_after": null,
+      "left_indent": null,
+      "right_indent": null,
+      "first_line_indent": null
+    }
+  },
+  "section": {
+    "page_width": 7560310.0,
+    "page_height": 10692130.0,
+    "top_margin": 0.0,
+    "bottom_margin": 0.0,
+    "left_margin": 0.0,
+    "right_margin": 0.0,
+    "header_distance": 449580.0,
+    "footer_distance": 449580.0
+  },
+  "header_footer": {}
+}
