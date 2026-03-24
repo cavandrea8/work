@@ -12,17 +12,24 @@ def copy_formatting(source_file, target_file):
         # Note: This is a simplified example; actual implementation may vary.
         if element.tag.endswith('p'):  # Paragraph formatting
             new_paragraph = target_doc.add_paragraph()
-            new_paragraph.style = source_doc.styles[element.style]
+            style_name = element.style
+            if style_name and style_name in source_doc.styles:
+                new_paragraph.style = source_doc.styles[style_name]
             new_paragraph.text = element.text
         elif element.tag.endswith('tbl'):  # Table formatting
-            new_table = target_doc.add_table(rows=0, cols=0)
+            # Get the table object from the XML element
+            table_obj = docx.table.Table(element, source_doc)
+            new_table = target_doc.add_table(rows=len(table_obj.rows), cols=len(table_obj.columns))
+            new_table.style = table_obj.style
             # Copy each cell formatting
-            for row in element.rows:
-                new_row = new_table.add_row()
-                for cell in row.cells:
-                    new_cell = new_row.cells.add_cell()
+            for row_idx, row in enumerate(table_obj.rows):
+                for cell_idx, cell in enumerate(row.cells):
+                    new_cell = new_table.cell(row_idx, cell_idx)
                     new_cell.text = cell.text
-                    new_cell.style = cell.style
+                    try:
+                        new_cell.style = cell.style
+                    except:
+                        pass
     
     # Save the target document
     target_doc.save(target_file)
