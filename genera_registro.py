@@ -1,4 +1,3 @@
-genera_registro.py
 --- generate_leg_sgi_01.py (原始)
 
 
