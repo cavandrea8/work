@@ -1,38 +1,35 @@
-import docx
+# Assicurati di avere python-docx installato:
+# pip install python-docx
 
-# Function to copy formatting elements from one document to another
+from docx import Document
+from docx.shared import Pt, RGBColor
 
-def copy_formatting(source_file, target_file):
-    source_doc = docx.Document(source_file)
-    target_doc = docx.Document(target_file)
-    
-    # Loop through each element in the source document
-    for element in source_doc.element.body:
-        # Copy formatting elements such as styles, headers, footers, etc.
-        # Note: This is a simplified example; actual implementation may vary.
-        if element.tag.endswith('p'):  # Paragraph formatting
-            new_paragraph = target_doc.add_paragraph()
-            style_name = element.style
-            if style_name and style_name in source_doc.styles:
-                new_paragraph.style = source_doc.styles[style_name]
-            new_paragraph.text = element.text
-        elif element.tag.endswith('tbl'):  # Table formatting
-            # Get the table object from the XML element
-            table_obj = docx.table.Table(element, source_doc)
-            new_table = target_doc.add_table(rows=len(table_obj.rows), cols=len(table_obj.columns))
-            new_table.style = table_obj.style
-            # Copy each cell formatting
-            for row_idx, row in enumerate(table_obj.rows):
-                for cell_idx, cell in enumerate(row.cells):
-                    new_cell = new_table.cell(row_idx, cell_idx)
-                    new_cell.text = cell.text
-                    try:
-                        new_cell.style = cell.style
-                    except:
-                        pass
-    
-    # Save the target document
-    target_doc.save(target_file)
+# Percorsi dei file nella tua repository
+file_target = "LEG-SGI-01_Registro_Requisiti_Legali_Tresun_DEFINITIVO_FORMATTATO.docx"
+file_source = "Manuale_SGI_Tresun.docx"
+file_output = "LEG-SGI-01_Registro_Requisiti_Legali_Tresun_FORMATTATO.docx"
 
-# Usage
-copy_formatting('Manuale_SGI_Tresun.docx', 'LEG-SGI-01_Registro_Requisiti_Legali_Tresun_DEFINITIVO_FORMATTATO.docx')
+# Carica i documenti
+doc_target = Document(file_target)
+doc_source = Document(file_source)
+
+# Funzione per copiare stile carattere da un paragrafo all'altro
+def copy_style(par_source, par_target):
+    if par_source.runs and par_target.runs:
+        for run_s, run_t in zip(par_source.runs, par_target.runs):
+            run_t.font.name = run_s.font.name
+            run_t.font.size = run_s.font.size
+            run_t.font.bold = run_s.font.bold
+            run_t.font.italic = run_s.font.italic
+            run_t.font.underline = run_s.font.underline
+            if run_s.font.color.rgb:
+                run_t.font.color.rgb = run_s.font.color.rgb
+
+# Applica la formattazione paragrafo per paragrafo
+for par_s, par_t in zip(doc_source.paragraphs, doc_target.paragraphs):
+    copy_style(par_s, par_t)
+
+# Salva il documento finale con la formattazione aggiornata
+doc_target.save(file_output)
+
+print(f"File formattato salvato come '{file_output}'")
