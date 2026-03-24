@@ -1,5 +1,48 @@
 ```
-# Configuration and data files
-*.json
-*.docx
+# Office document extraction artifacts
+legsgi_unpack/
+manuale_unpack/
+
+# Python compiled files
+*.pyc
+__pycache__/
+
+# Environment files
+.env
+.env.local
+*.env.*
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.swp
+
+# Editors
+.vscode/
+.idea/
+
+# Dependencies
+.venv/
+venv/
+node_modules/
+
+# Build artifacts
+dist/
+build/
+target/
+
+# Coverage
+coverage/
+htmlcov/
+.coverage
+
+# Test cache
+.pytest_cache/
+.mypy_cache/
+
+# OS files
+.DS_Store
+Thumbs.db
 ```
